@@ -1,0 +1,17 @@
+service: tiler
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  region: us-east-1
+
+plugins:
+  - serverless-webpack
+
+functions:
+  tile:
+    handler: handler.tile
+    events:
+      - http:
+          path: tile
+          method: get
